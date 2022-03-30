@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">109590042_HW6-1</string>
+    <string name="CheckBox1">Chocolate syrup</string>
+    <string name="CheckBox2">Sprinkles</string>
+    <string name="CheckBox3">Crushed nuts</string>
+    <string name="CheckBox4">Cherries</string>
+    <string name="CheckBox5">Orio cookie crumbles</string>
+    <string name="button1">SHOW TOAST</string>
+</resources>
