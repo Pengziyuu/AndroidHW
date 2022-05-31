@@ -18,8 +18,8 @@
     <string name="app_name">109590042_HW12-1</string>
     <string name="alarm_on_toast">Stand Up Alarm On!</string>
     <string name="alarm_off_toast">Stand Up Alarm Off!</string>
-    <string name="notification_title">Stand Up Alert</string>
-    <string name="notification_text">Make a Wish!</string>
+    <string name="notification_title">Make a Wish!</string>
+    <string name="notification_text">Its 11:11!</string>
     <string name="alarm_off">Alarm off</string>
     <string name="alarm_on">Alarm on</string>
 </resources>

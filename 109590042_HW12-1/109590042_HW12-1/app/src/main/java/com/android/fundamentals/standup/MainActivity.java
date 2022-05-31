@@ -29,6 +29,8 @@ import android.widget.CompoundButton;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import java.util.Calendar;
+
 
 /**
  * MainActivity for the Stand up! app. Contains a toggle button that
@@ -39,15 +41,10 @@ public class MainActivity extends AppCompatActivity {
     // Notification ID.
     private static final int NOTIFICATION_ID = 0;
     // Notification channel ID.
-    private static final String PRIMARY_CHANNEL_ID =
-            "primary_notification_channel";
+    private static final String PRIMARY_CHANNEL_ID = "primary_notification_channel";
     private NotificationManager mNotificationManager;
 
-    /**
-     * Initializes the activity.
-     *
-     * @param savedInstanceState The current state data.
-     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,23 +73,14 @@ public class MainActivity extends AppCompatActivity {
         alarmToggle.setOnCheckedChangeListener
                 (new CompoundButton.OnCheckedChangeListener() {
                     @Override
-                    public void onCheckedChanged
-                            (CompoundButton buttonView, boolean isChecked) {
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         String toastMessage;
                         if (isChecked) {
-
-                            long repeatInterval = AlarmManager.INTERVAL_FIFTEEN_MINUTES;
-
-                            long triggerTime = SystemClock.elapsedRealtime()
-                                    + repeatInterval;
-
-                            // If the Toggle is turned on, set the repeating alarm with
-                            // a 15 minute interval.
                             if (alarmManager != null) {
-                                alarmManager.setInexactRepeating
-                                        (AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                                                triggerTime, repeatInterval,
-                                                notifyPendingIntent);
+                                Calendar calendar = Calendar.getInstance();
+                                calendar.set(Calendar.HOUR, 11);
+                                calendar.set(Calendar.MINUTE, 11);
+                                alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), notifyPendingIntent);
                             }
                             // Set the toast message for the "on" case.
                             toastMessage = getString(R.string.alarm_on_toast);
